@@ -57,7 +57,7 @@ Claude Code → OpenTelemetry Collector → Prometheus (metrics) + Loki (events/
 | Service | Purpose | Port | UI |
 |---------|---------|------|----| 
 | **OpenTelemetry Collector** | Metrics/logs ingestion | 4317 (gRPC), 4318 (HTTP) | - |
-| **Prometheus** | Metrics storage & querying | 9090 | http://localhost:9090 |
+| **Prometheus** | Metrics storage & querying | 9091 | http://localhost:9091 |
 | **Loki** | Log aggregation & storage | 3100 | - |
 | **Grafana** | Dashboards & visualization | 3000 | http://localhost:3000 |
 
@@ -93,7 +93,7 @@ claude
 
 ### 3. Access Dashboards
 - **Grafana**: http://localhost:3000 (admin/admin)
-- **Prometheus**: http://localhost:9090
+- **Prometheus**: http://localhost:9091
 
 > 🖼️ **Visual Guide**: Check out the [Dashboard Screenshots](#-dashboard-screenshots) to see what your dashboards will look like!
 

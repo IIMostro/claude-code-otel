@@ -13,7 +13,7 @@ up: ## Start the observability stack
 	docker compose up -d
 	@echo "✅ Stack started!"
 	@echo "📊 Grafana: http://localhost:3000 (admin/admin)"
-	@echo "🔍 Prometheus: http://localhost:9090"
+	@echo "🔍 Prometheus: http://localhost:9091"
 	@echo "📄 Loki: http://localhost:3100"
 
 
@@ -68,7 +68,7 @@ status: ## Show stack status
 	@echo ""
 	@echo "🌐 Service URLs:"
 	@echo "  Grafana:      http://localhost:3000"
-	@echo "  Prometheus:   http://localhost:9090"
+	@echo "  Prometheus:   http://localhost:9091"
 	@echo "  Loki:         http://localhost:3100"
 
 	@echo "  Collector:    http://localhost:4317 (gRPC), http://localhost:4318 (HTTP)"

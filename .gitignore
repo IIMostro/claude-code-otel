@@ -44,3 +44,5 @@ loki_data/
 # Temporary files
 tmp/
 temp/ 
+# Large image bundle
+all-images.tar
