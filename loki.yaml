@@ -1,0 +1,49 @@
+auth_enabled: false
+
+server:
+  http_listen_port: 3100
+
+common:
+  path_prefix: /loki
+  replication_factor: 1
+  ring:
+    kvstore:
+      store: inmemory
+
+schema_config:
+  configs:
+    - from: 2025-01-01
+      store: tsdb
+      object_store: s3
+      schema: v13
+      index:
+        prefix: loki_index_
+        period: 24h
+
+storage_config:
+  aws:
+    endpoint: rustfs:9000
+    bucketnames: loki-data
+    access_key_id: loki
+    secret_access_key: Aa123456
+    insecure: true
+    s3forcepathstyle: true
+
+  tsdb_shipper:
+    active_index_directory: /loki/index
+    cache_location: /loki/index_cache
+
+ingester:
+  wal:
+    enabled: true
+    dir: /loki/wal
+  chunk_idle_period: 1m      # 1m 无新日志即切 chunk 并 flush
+  max_chunk_age: 1m          # chunk 最长存活 1m 即强制 flush
+  chunk_target_size: 1048576 # 1MB 写满即 flush
+  flush_op_timeout: 10s
+
+compactor:
+  working_directory: /loki/compactor
+
+limits_config:
+  allow_structured_metadata: true
